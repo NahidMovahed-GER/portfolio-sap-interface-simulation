@@ -15,16 +15,11 @@ The interface performs:
 
 The project demonstrates:
 
-Business process analysis
-
-Technical interface design
-
-Database modeling
-
-Docker-based setup
-
-2nd level support thinking (ITIL)
-
-Structured documentation
+- Business process analysis
+- Technical interface design
+- Database modeling
+- Docker-based setup
+- 2nd level support thinking (ITIL)
+- Structured documentation
 
 This portfolio project is designed to reflect real SAP integration and operations scenarios in public sector environments.

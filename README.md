@@ -1,5 +1,6 @@
 # portfolio-sap-interface-simulation
-Simulation of a SAP interface between a source system and SAP HCM. Includes business concept, technical architecture, Docker setup, PostgreSQL database, validation logic, and error handling (ITIL-oriented)./
+Simulation of a SAP interface between a source system and SAP HCM. Includes business concept, technical architecture, Docker setup, PostgreSQL database, validation logic, and error handling (ITIL-oriented).
+
 This project simulates a real-world SAP interface scenario.
 
 A source system sends employee master data to SAP HCM.

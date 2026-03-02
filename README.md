@@ -6,16 +6,11 @@ This project simulates a real-world SAP interface scenario.
 A source system sends employee master data to SAP HCM.
 The interface performs:
 
-Data validation
-
-Field mapping
-
+- Data validation
+- Field mapping
 Error handling
-
 Logging
-
 Database storage
-
 Simulation of SAP target structure
 
 The project demonstrates:

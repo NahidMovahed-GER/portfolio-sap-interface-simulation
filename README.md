@@ -8,10 +8,10 @@ The interface performs:
 
 - Data validation
 - Field mapping
-Error handling
-Logging
-Database storage
-Simulation of SAP target structure
+- Error handling
+- Logging
+- Database storage
+- Simulation of SAP target structure
 
 The project demonstrates:
 

@@ -21,8 +21,7 @@ The interface processes the data in several steps:
 3. Log invalid records
 4. Transfer valid records to the **SAP employee table**
 
-Invalid records are not transferred to SAP.
-They are stored in an **error log table**.
+Invalid records are written to an error log table and are not transferred to SAP.
 
 ---
 

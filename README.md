@@ -175,17 +175,21 @@ The architecture reflects patterns used in real enterprise integration systems.
 portfolio-sap-interface-simulation
 
 ```
-docker-compose.yml  
-README.md  
-
-data/
- └── inbound/
-      employees.csv  
-
-db/
- └── init/
-      01_schema.sql
-      02_load.sql
-      03_validate_and_transfer.sql
+├── docker-compose.yml
+├── README.md
+├── data
+│ └── inbound
+│ └── employees.csv
+├── db
+│ └── init
+│ ├── 01_schema.sql
+│ ├── 02_load.sql
+│ └── 03_validate_and_transfer.sql
+├── docs
+│ ├── incident_example.md
+│ └── screenshots
+│ ├── staging.png
+│ ├── sap.png
+│ └── error_log.png
 
 ```

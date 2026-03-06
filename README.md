@@ -1,285 +1,173 @@
-\# portfolio-sap-interface-simulation
-
-
+# portfolio-sap-interface-simulation
 
 This project simulates a simple SAP interface.
 
-
-
 Employee data from a source system is imported from a CSV file,
-
 validated, and then transferred to a SAP target structure.
 
-
-
 The goal of this project is to demonstrate how typical enterprise
-
 interfaces work in real IT systems.
-
-
 
 ---
 
-
-
-\# Scenario
-
-
+# Scenario
 
 A source system exports employee master data as a CSV file.
 
-
-
 The interface processes the data in several steps:
 
+1. Import the CSV data into a **staging table**
+2. Validate the data
+3. Log invalid records
+4. Transfer valid records to the **SAP employee table**
 
-
-1\. Import the CSV data into a \*\*staging table\*\*
-
-2\. Validate the data
-
-3\. Log invalid records
-
-4\. Transfer valid records to the \*\*SAP employee table\*\*
-
-
-
-Invalid records are not transferred to SAP.
-
-They are stored in an \*\*error log table\*\*.
-
-
+Invalid records are not transferred to SAP. They are stored in the `error_log` table for further analysis.
 
 ---
 
-
-
-\# Architecture
-
-
+# Architecture
 
 The project uses a simple interface architecture:
-
-
-
+```
 Source System (CSV)
-
-&nbsp;       │
-
-&nbsp;       ▼
-
+        │
+        ▼
 Staging Table (PostgreSQL)
-
-&nbsp;       │
-
-&nbsp;       ▼
-
+        │
+        ▼
 Validation Logic (SQL)
-
-&nbsp;       │
-
-&nbsp;       ├── Valid records → SAP Employee Table
-
-&nbsp;       │
-
-&nbsp;       └── Invalid records → Error Log
-
-
-
+        │
+        ├── Valid records → SAP Employee Table
+        │
+        └── Invalid records → Error Log
+```
 ---
 
-
-
-
-
-\# Technologies
-
-
+# Technologies
 
 This project uses the following technologies:
 
-
-
-\- Docker
-
-\- PostgreSQL
-
-\- Adminer
-
-\- SQL
-
-\- CSV file interface
-
-
+- Docker
+- PostgreSQL
+- Adminer
+- SQL
+- CSV file interface
 
 ---
 
+# Database Tables
 
-
-\# Database Tables
-
-
-
-\### staging\_employee
-
-
+### staging_employee
 
 Stores raw incoming data from the source system.
 
-
-
 The staging table allows incomplete or invalid data.
-
 This is common in real interface systems.
-
-
 
 ---
 
-
-
-\### sap\_employee
-
-
+### sap_employee
 
 Represents the SAP employee master data table.
 
-
-
 Only valid data is transferred to this table.
-
-
 
 ---
 
-
-
-\### error\_log
-
-
+### error_log
 
 Stores invalid records and validation errors.
 
-
-
 This helps with troubleshooting and data correction.
 
-
-
 ---
 
-
-
-\# Data Flow
-
-
-
+# Data Flow
+```
 CSV file  
-
-→ staging\_employee  
-
+→ staging_employee  
 → validation logic  
+→ sap_employee (valid records)  
+→ error_log (invalid records)
+```
+---
 
-→ sap\_employee (valid records)  
+### Example Execution
 
-→ error\_log (invalid records)
+The following screenshots show the result of the interface process.
+
+**Staging Table (Raw Data)**
+
+The staging table stores all incoming data from the source system.
+
+![Staging Table](docs/screenshots/staging.png)
 
 
+**SAP Employee Table (Valid Records)**
+
+Only valid records are transferred to the SAP target table.
+
+![SAP Table](docs/screenshots/sap.png)
+
+
+**Error Log (Invalid Records)**
+
+Invalid records are stored in the error log.
+
+![Error Log](docs/screenshots/error_log.png)
 
 ---
 
-
-
-\# Example Validation
-
-
-
-Example record in CSV:
-
-10006,Invalid User,,HR-003,2026-03-01,E12
-
-
-
-
-
-
-
-The field \*\*birth\_date is missing\*\*.
-
-
-
-Result:
-
-
-
-\- The record is written to `error\_log`
-
-\- The record is \*\*not transferred\*\* to `sap\_employee`
-
-
-
----
-
-
-
-\# How to Run
-
-
+# How to Run
 
 Start the database environment:
-
-
+```
 docker compose up -d
-
-
+```
 
 Open Adminer in the browser:
 
-
-
+```
 http://localhost:8080
-
-
+```
 Login:
-
+```
 System: PostgreSQL
-
 Server: postgres
-
 User: demo
-
 Password: demo
-
-Database: sap\_sim
-
-
-
-
+Database: sap_sim
+```
 ---
 
-
-
-\# Project Goal
-
-
+# Project Goal
 
 This portfolio project demonstrates:
 
+- SAP interface concepts
+- staging table architecture
+- validation logic
+- error handling
+- data integration workflow
 
+The architecture reflects patterns used in real enterprise integration systems.
 
-\- SAP interface concepts
+## Project Structure
 
-\- staging table architecture
+portfolio-sap-interface-simulation
 
-\- validation logic
+```
+docker-compose.yml  
+README.md  
 
-\- error handling
+data/
+ └── inbound/
+      employees.csv  
 
-\- data integration workflow
+db/
+ └── init/
+      01_schema.sql
+      02_load.sql
+      03_validate_and_transfer.sql
 
-
-
-The design reflects common patterns used in real enterprise
-
-integration systems and public sector IT environments.
-
+```

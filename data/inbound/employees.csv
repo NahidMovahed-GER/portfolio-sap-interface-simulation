@@ -1,0 +1,7 @@
+personnel_no,full_name,birth_date,org_unit,entry_date,pay_grade
+10001,Anna Schmidt,1988-04-12,HR-001,2026-03-01,E12
+10002,Lukas Weber,1992-11-30,IT-010,2026-02-15,E11
+10003,Sarah Klein,1985-07-09,FIN-005,2026-01-01,E13
+10004,Tom Bauer,1995-05-18,HR-002,2026-03-15,E10
+10005,Julia Hoffmann,1990-09-21,IT-011,2026-02-01,E12
+10006,Invalid User,,HR-003,2026-03-01,E12

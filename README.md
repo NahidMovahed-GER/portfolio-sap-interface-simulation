@@ -102,7 +102,7 @@ The staging table stores all incoming data from the source system.
 
 ![Staging Table](docs/screenshots/staging.png)
 
-<hr>
+<hr style="height:1px; border:none; color:#e0e0e0; background-color:#e0e0e0;">
 
 **SAP Employee Table (Valid Records)**
 
@@ -110,7 +110,7 @@ Only valid records are transferred to the SAP target table.
 
 ![SAP Table](docs/screenshots/sap.png)
 
-<hr>
+<hr style="height:1px; border:none; color:#e0e0e0; background-color:#e0e0e0;">
 
 **Error Log (Invalid Records)**
 

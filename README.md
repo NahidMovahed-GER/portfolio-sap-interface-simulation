@@ -118,6 +118,24 @@ Invalid records are stored in the error log.
 
 ---
 
+# Operations Concept
+
+The interface is executed as a batch process.
+
+1st Level Support:
+Monitors the interface execution and checks if new data has been imported.
+
+2nd Level Support:
+Analyzes validation errors and database logs.
+
+Monitoring:
+The staging_employee and error_log tables are checked regularly.
+
+Incident Handling:
+Invalid records are written to the error_log table and can be analyzed by support teams.
+
+---
+
 # How to Run
 
 Start the database environment:

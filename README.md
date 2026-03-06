@@ -140,5 +140,4 @@ This portfolio project demonstrates:
 - error handling
 - data integration workflow
 
-The design reflects common patterns used in real enterprise
-integration systems and public sector IT environments.
+The architecture reflects patterns used in real enterprise integration systems.

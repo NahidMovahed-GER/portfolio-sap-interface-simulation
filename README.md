@@ -29,7 +29,7 @@ They are stored in an **error log table**.
 # Architecture
 
 The project uses a simple interface architecture:
-
+```
 Source System (CSV)
         │
         ▼
@@ -41,7 +41,7 @@ Validation Logic (SQL)
         ├── Valid records → SAP Employee Table
         │
         └── Invalid records → Error Log
-
+```
 ---
 
 # Technologies
@@ -84,13 +84,13 @@ This helps with troubleshooting and data correction.
 ---
 
 # Data Flow
-
+```
 CSV file  
 → staging_employee  
 → validation logic  
 → sap_employee (valid records)  
 → error_log (invalid records)
-
+```
 ---
 
 # Example Validation

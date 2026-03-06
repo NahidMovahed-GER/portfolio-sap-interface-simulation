@@ -92,19 +92,31 @@ CSV file
 ```
 ---
 
-# Example Validation
+### Example Execution
 
-Example record in CSV:
-```
-10006,Invalid User,,HR-003,2026-03-01,E12
-```
+The following screenshots show the result of the interface process.
 
-The field **birth_date is missing**.
+**Staging Table (Raw Data)**
 
-Result:
+The staging table stores all incoming data from the source system.
 
-- The record is written to `error_log`
-- The record is **not transferred** to `sap_employee`
+![Staging Table](docs/screenshots/staging.png)
+
+---
+
+**SAP Employee Table (Valid Records)**
+
+Only valid records are transferred to the SAP target table.
+
+![SAP Table](docs/screenshots/sap.png)
+
+---
+
+**Error Log (Invalid Records)**
+
+Invalid records are stored in the error log.
+
+![Error Log](docs/screenshots/error_log.png)
 
 ---
 

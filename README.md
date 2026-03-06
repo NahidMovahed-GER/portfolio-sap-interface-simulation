@@ -172,8 +172,6 @@ The architecture reflects patterns used in real enterprise integration systems.
 
 ## Project Structure
 
-portfolio-sap-interface-simulation
-
 ```
 │   docker-compose.yml
 │   README.md
